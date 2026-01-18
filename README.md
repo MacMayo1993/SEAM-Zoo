@@ -12,12 +12,21 @@ It is currently the **strongest compressor** developed in this project, deliveri
 
 ## Features
 
+### Python Algorithm
 - Intelligent routing: RP² only when MDL gain is positive
 - Recursive RP² applied to low-frequency wavelet approx coeffs
 - Auto-selection of best wavelet family
 - 4-panel per-test visualizations (saved as PNG)
 - Full benchmark suite with 5 representative test cases
 - Lossless (numerically verified with `np.allclose`)
+
+### Interactive Visualization (NEW!)
+- 5 progressive educational levels teaching compression concepts
+- Real-time 3D ribbon geometry showing RP² folding
+- Interactive strain field visualization
+- Symmetry heatmap with local correlation analysis
+- Antipode ghost visualization for geometric intuition
+- Context-aware tutorial system with hints
 
 ## Installation
 
@@ -39,11 +48,25 @@ zstandard>=0.21.0
 
 ## Quick Start
 
+### Python Compression Algorithm
+
 Run the full benchmark + visualization:
 
 ```bash
 python hybrid_zoo_v3.py
 ```
+
+### Interactive 3D Visualization (NEW!)
+
+Experience RP² folding interactively with our educational web app:
+
+```bash
+cd visualization
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000` to explore 5 progressive levels teaching compression concepts through interactive 3D visualization. See `visualization/README.md` for details.
 
 **What happens:**
 - Runs 5 test cases (20,000 points each)
@@ -72,6 +95,21 @@ python hybrid_zoo_v3.py
 | Piecewise Flipped | 1.18×     | 1.89×       | **1.60×** | sym8       |
 | Sensor Gradient  | 1.02×     | 1.09×       | **1.07×** | db4        |
 | Random Control   | 1.00×     | 1.00×       | 1.00×     | bior4.4    |
+
+## Project Structure
+
+```
+SEAM-Zoo/
+├── hybrid_zoo_v3.py          # Main compression algorithm
+├── requirements.txt          # Python dependencies
+├── results/                  # PNG visualizations output
+├── docs/                     # Technical documentation
+└── visualization/            # Interactive 3D web app (NEW!)
+    ├── src/
+    │   └── App.jsx          # React visualization component
+    ├── package.json         # Node.js dependencies
+    └── README.md            # Visualization documentation
+```
 
 ## Architecture
 
